@@ -1,9 +1,10 @@
 var game = document.querySelectorAll(".game");
 var parentXO = document.getElementById("parent-xo");
 var counter = true;
+let eventPath = e.path || e.composedPath();
 for (var i = 0; i < game.length; i++) {
     game[i].addEventListener("click", function (e) {
-        if (e.path[0].innerHTML === "") {
+        if (eventPath[0].innerHTML === "") {
             addXOrO(e, counter);
         }
     });
@@ -79,3 +80,6 @@ function topRight() {
         return parentXO.children[2].classList[2];
     }
 }
+
+
+
