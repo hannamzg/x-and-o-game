@@ -1,16 +1,19 @@
 var game = document.querySelectorAll(".game");
 var parentXO = document.getElementById("parent-xo");
 var counter = true;
-let eventPath = e.path || e.composedPath();
+
 
 for (var i = 0; i < game.length; i++) {
+    
     game[i].addEventListener("click", function (e) {
+        let eventPath = e.path || e.composedPath();
         if (eventPath[0].innerHTML === "") {
             addXOrO(e, counter);
         }
     });
 }
 function addXOrO(e, bool) {
+    let eventPath = e.path || e.composedPath();
     if (eventPath.length === 6 && bool === true) {
         eventPath[0].innerHTML = "<img src=\"photos/x.png\" alt=\"x\">";
         eventPath[0].classList.add("x");
