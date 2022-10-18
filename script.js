@@ -11,14 +11,16 @@ for (var i = 0; i < game.length; i++) {
     });
 }
 function addXOrO(event, bool) {
-    if (event.path.length === 6 && bool === true) {
-        event.path[0].innerHTML = "<img src=\"photos/x.png\" alt=\"x\">";
-        event.path[0].classList.add("x");
+    let eventPath = event.path || e.composedPath();
+    if (eventPath.length === 6 && bool === true) {
+        eventPath[0].innerHTML = "<img src=\"photos/x.png\" alt=\"x\">";
+        eventPath[0].classList.add("x");
         counter = !counter;
     }
     else if (event.path.length === 6 && bool === false) {
-        event.path[0].innerHTML = "<img src=\"photos/o.png\" alt=\"o\">";
-        event.path[0].classList.add("o");
+        let eventPath = event.path || e.composedPath();
+        eventPath[0].innerHTML = "<img src=\"photos/o.png\" alt=\"o\">";
+        eventPath[0].classList.add("o");
         counter = !counter;
     }
     checkWinner();
