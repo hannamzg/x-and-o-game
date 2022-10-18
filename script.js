@@ -17,8 +17,7 @@ function addXOrO(event, bool) {
         eventPath[0].classList.add("x");
         counter = !counter;
     }
-    else if (event.path.length === 6 && bool === false) {
-        let eventPath = event.path || e.composedPath();
+    else if (eventPath.length === 6 && bool === false) {
         eventPath[0].innerHTML = "<img src=\"photos/o.png\" alt=\"o\">";
         eventPath[0].classList.add("o");
         counter = !counter;
@@ -44,12 +43,13 @@ function checkWinner() {
         alert(str + " win!!");
     }
 }
+console.log(parentXO.children[i]);
 function rows() {
     for (var i = 0; i < 7; i = i + 3) {
         if (parentXO.children[i].classList[2] ===
             parentXO.children[i + 1].classList[2] &&
             parentXO.children[i].classList[2] ===
-                parentXO.children[i + 2].classList[2] &&
+            parentXO.children[i + 2].classList[2] &&
             parentXO.children[i].classList[2] !== undefined) {
             return parentXO.children[i].classList[2];
         }
@@ -61,7 +61,7 @@ function line() {
         if (parentXO.children[i].classList[2] ===
             parentXO.children[i + 3].classList[2] &&
             parentXO.children[i].classList[2] ===
-                parentXO.children[i + 6].classList[2] &&
+            parentXO.children[i + 6].classList[2] &&
             parentXO.children[i].classList[2] !== undefined) {
             return parentXO.children[i].classList[2];
         }
