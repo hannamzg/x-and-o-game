@@ -43,7 +43,8 @@ function checkWinner() {
         alert(str + " win!!");
     }
 }
-console.log(parentXO.children[i]);
+
+
 function rows() {
     for (var i = 0; i < 7; i = i + 3) {
         if (parentXO.children[i].classList[2] ===
