@@ -10,8 +10,8 @@ for (var i = 0; i < game.length; i++) {
         }
     });
 }
-function addXOrO(event, bool) {
-    let eventPath = event.path || e.composedPath();
+function addXOrO(e, bool) {
+    let eventPath = e.path || e.composedPath();
     if (eventPath.length === 6 && bool === true) {
         eventPath[0].innerHTML = "<img src=\"photos/x.png\" alt=\"x\">";
         eventPath[0].classList.add("x");
