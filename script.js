@@ -4,7 +4,6 @@ var counter = true;
 
 
 for (var i = 0; i < game.length; i++) {
-    
     game[i].addEventListener("click", function (e) {
         let eventPath = e.path || e.composedPath();
         if (eventPath[0].innerHTML === "") {
@@ -12,6 +11,7 @@ for (var i = 0; i < game.length; i++) {
         }
     });
 }
+
 function addXOrO(e, bool) {
     let eventPath = e.path || e.composedPath();
     if (eventPath.length === 6 && bool === true) {
@@ -26,8 +26,13 @@ function addXOrO(e, bool) {
     }
     checkWinner();
 }
+
 function checkWinner() {
     var str;
+    str = topLeft();
+    if (str === "x" || str === "o") {
+        alert(str + " win!!");
+    }
     str = rows();
     if (str === "x" || str === "o") {
         alert(str + " win!!");
@@ -37,10 +42,6 @@ function checkWinner() {
         alert(str + " win!!");
     }
     str = topRight();
-    if (str === "x" || str === "o") {
-        alert(str + " win!!");
-    }
-    str = topLeft();
     if (str === "x" || str === "o") {
         alert(str + " win!!");
     }
@@ -72,20 +73,90 @@ function line() {
     //   return topLeft();
 }
 function topLeft() {
-    if (parentXO.children[0].classList[2] === parentXO.children[4].classList[2] &&
-        parentXO.children[0].classList[2] === parentXO.children[8].classList[2] &&
-        parentXO.children[0].classList[2] !== undefined) {
+    /*  if (parentXO.children[0].classList[2] === parentXO.children[4].classList[2] &&
+        parentXO.children[0].classList[2] === parentXO.children[8].classList[2] ) {
         return parentXO.children[0].classList[2];
-    }
+    }  */
+    let place1 = parentXO.children[0].classList[2];
+    let place5 = parentXO.children[4].classList[2];
+    console.log(place1);
+    console.log(place5);
+     if (parentXO.children[0].classList[2]===parentXO.children[4].classList[2]
+        &&parentXO.children[0].classList[2]===parentXO.children[8].classList[2]&&
+        parentXO.children[0].classList[2]!== undefined) {
+         return parentXO.children[0].classList[2]
+    } 
+    
     //    return topRight();
 }
+
 function topRight() {
     if (parentXO.children[2].classList[2] === parentXO.children[4].classList[2] &&
-        parentXO.children[2].classList[2] === parentXO.children[6].classList[2] &&
-        parentXO.children[2].classList[2] !== undefined) {
+        parentXO.children[2].classList[2] === parentXO.children[6].classList[2] ) {
         return parentXO.children[2].classList[2];
     }
+   
 }
 
 
 
+let arr3 = [13, 6, 8, 11, 2];
+let arr2 = [1, 4, 5];
+arr1 = arr3.concat(arr2);
+
+let a = arr1.length;
+
+let finalArr = [];
+
+function check1() {
+  for (let index = 0; index < a; index++) {
+    let sss = [arr1[0], 0]; // [ערך,המיקום של הערך]
+    for (let i = 0; i < a; i++) {
+      if (sss[0] >= arr1[i]) {
+        sss[0] = arr1[i];
+        sss[1] = i;
+      }
+    }
+    finalArr.push(sss[0]);
+    arr1.splice(sss[1], 1);
+  }
+}
+/* check1(); */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+function ss(){
+    for (const key of arr1) {
+        for (const so of arr2) {
+            if(key >= so){
+            finalArr.push(so)
+            }
+        }
+        finalArr.push(key)
+     }   
+}   
+
+ss()
+
+function removeDuplicates(arr) {
+    return arr.filter((item,index) => arr.indexOf(item) === index);
+}
+
+console.log( removeDuplicates(finalArr)); */
